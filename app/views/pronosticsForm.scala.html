@@ -1,0 +1,38 @@
+@(test: List[Match])
+
+
+@main {	
+	<h1>Liste des matches</h1>
+	<div class="row">
+		<div class="span3 offset4">
+			<table class="table table-striped">
+				<thead>
+					<tr>				
+						<th>Domicile</th>
+						<th></th>
+						<th style="text-align:right;">Ext&eacute;rieur</th>
+					</tr>
+				</thead>
+				<tbody>			
+					@for(matchTemp <- test) {
+						<tr>
+							<td>@matchTemp.equipe1.getNom()</td>
+							<td><input type="button" value="Pronostiquer" class="btn btn-success btn-mini" onclick="javascript:pronostiquer('Pronostics_@matchTemp.id');"></td>
+							<td style="text-align:right;">@matchTemp.equipe2.getNom()</td>
+						</tr>
+						<tr id="Pronostics_@matchTemp.id" style="display:none;">
+							<td colspan="3" style="text-align: center;">test</td>
+						</tr>
+					}			
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<input type="submit" value="Voir les matches" class="btn btn-primary btn-large">
+}
+
+<script>
+	function pronostiquer(id) {
+	 	$('#'+id).toggle('fast');
+	 }
+</script>

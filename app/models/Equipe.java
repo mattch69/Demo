@@ -17,6 +17,10 @@ public class Equipe extends Model{
     @Column(name = "nomEquipe")
     public String nom;
     
+    public String getNom() {
+    	return this.nom;
+    }
+    
     public static Finder<Long,Equipe> find = new Finder<Long,Equipe>(Long.class, Equipe.class); 
 
     public static Equipe findById(Long id) {

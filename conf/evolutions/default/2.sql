@@ -23,7 +23,7 @@ insert into Equipe (id,nomEquipe) values (  18,'Toulouse');
 insert into Equipe (id,nomEquipe) values (  19,'Troyes');
 insert into Equipe (id,nomEquipe) values (  20,'Valenciennes');
 
-insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) values (1,10,18,null,null,null);
+insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) values (1,10,18,2,0,10);
 insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) values (2,5,3,null,null,null);
 insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) values (3,11,4,null,null,null);
 insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) values (4,12,1,null,null,null);
