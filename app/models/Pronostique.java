@@ -1,5 +1,7 @@
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -7,23 +9,25 @@ import javax.persistence.ManyToOne;
 import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 
+@Entity
 public class Pronostique extends Model {
 
 	@Id
-	private Long id;
+	public Long id;
 	
 	@ManyToOne
     @JoinColumn(name="match")
-	private Match match;
+	public Match match;
 	
 	@ManyToOne
     @JoinColumn(name="utilisateur")
-	private Utilisateur utilisateur;
+	public Utilisateur utilisateur;
 	
-	@Required
-	private Integer pronoEquipe1;
-	@Required
-	private Integer pronoEquipe2;
+	@Column(name="pronoEquipe1")
+	public Integer pronoEquipe1;
+	
+	@Column(name="pronoEquipe2")
+	public Integer pronoEquipe2;
 	
 	public static Finder<Long,Pronostique> find = new Finder(
 		    Long.class, Pronostique.class

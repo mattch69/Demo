@@ -36,8 +36,11 @@ insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) value
 
 insert into Utilisateur (nom,prenom,points,password) values ('toto','toto',0,'toto');
 
+insert into Pronostique (id,match,utilisateur,pronoEquipe1,pronoEquipe2) values (1,1,'toto',3,2);
+
 # --- !Downs
 
+delete from Pronostique;
 delete from Match;
 delete from Equipe;
 delete from Utilisateur;

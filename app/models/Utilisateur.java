@@ -11,7 +11,6 @@ import play.data.validation.Constraints.Required;
 
 
 import play.db.ebean.Model;
-import sun.tools.tree.Expression;
 
 @Entity 
 public class Utilisateur extends Model{
@@ -23,15 +22,15 @@ public class Utilisateur extends Model{
     public String nom;
     
 	@Column(name = "prenom")
-    private String prenom;
+    public String prenom;
     
 	@Column(name = "points")
-    private Integer points;
+    public Integer points;
     
 	@Required
 	@NonEmpty
 	@Column(name = "password")
-    private String password;
+    public String password;
     
     public static Finder<Long,Utilisateur> find = new Finder<Long,Utilisateur>(Long.class, Utilisateur.class); 
 

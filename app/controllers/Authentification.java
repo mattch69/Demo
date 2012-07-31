@@ -31,7 +31,6 @@ public class Authentification extends Controller {
 
     public static Result authenticate() {
         Form<AuthenticatedUtilisateur> loginForm = form(AuthenticatedUtilisateur.class).bindFromRequest();
-        loginForm.
         if(loginForm.hasErrors()) {
             return badRequest(login.render(loginForm));
         } else {
