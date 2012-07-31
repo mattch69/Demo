@@ -28,7 +28,7 @@
 						</li>
 						<li><a href="@routes.Pronostiques.pronostics()">Pronostic</a></li>
 						@if(user != null) {
-                            <li><a>@user.nom</a></li>
+                            <li><a>@user.nom (@user.points point(s))</a></li>
                             <li><a href="@routes.Authentification.logout()">Logout</a></li>
                     	}
 					</ul>

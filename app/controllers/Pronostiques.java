@@ -17,10 +17,13 @@ public class Pronostiques extends Controller  {
 	static Form<Pronostique> pronostiqueForm = form(Pronostique.class);
 	
 	public static Result pronostics() {
+		Utilisateur user = Utilisateur.findByNom(request().username());
 		List<Match> matches = Match.find.all();
+		//List<Pronostique> pronostiques = Pronostique.find.where().eq("utilisateur",user).in("match", matches).findList();
+		List<Pronostique> pronostiques = Pronostique.find.all();
 		pronostiqueForm = form(Pronostique.class);
 		return ok(
-		pronosticsForm.render(matches,pronostiqueForm,Utilisateur.findByNom(request().username()))
+		pronosticsForm.render(matches,pronostiques,pronostiqueForm,user)
 		);
 	}
   

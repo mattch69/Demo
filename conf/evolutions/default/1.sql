@@ -16,6 +16,7 @@ create table match (
   scoreEquipe1              integer,
   scoreEquipe2              integer,
   vainqueur                 bigint,
+  dateMatch                 timestamp,
   constraint pk_match primary key (id))
 ;
 

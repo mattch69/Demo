@@ -1,4 +1,4 @@
-@(test: List[Match], pronostiqueForm: Form[Pronostique],user: Utilisateur)
+@(test: List[Match],pronostiques: List[Pronostique], pronostiqueForm: Form[Pronostique],user: Utilisateur)
 @import helper.twitterBootstrap._
 
 @main(user) {	
@@ -23,15 +23,26 @@
 						<tr id="Pronostics_@matchTemp.id" style="display:none;">
 							<td colspan="3" style="text-align: center;">
 							@helper.form(routes.Pronostiques.add) {
-							
-							
-								@helper.inputText(pronostiqueForm("pronoEquipe1"))
-								@helper.inputText(pronostiqueForm("pronoEquipe2"))
-								<input type="submit" value="Valid">
+								@if(!pronostiques.isEmpty() && !pronostiques.filter(_.getMatch().id.equals(matchTemp.id)).isEmpty()){
+									@matchTemp.equipe1.getNom(): @pronostiques.filter(_.getMatch().id.equals(matchTemp.id)).head.getPronoEquipe1()
+									@matchTemp.equipe2.getNom(): @pronostiques.filter(_.getMatch().id.equals(matchTemp.id)).head.getPronoEquipe2()
+								}else{
+															
+									@helper.inputText(pronostiqueForm("pronoEquipe1"))
+									@helper.inputText(pronostiqueForm("pronoEquipe2"))
+									<input type="submit" value="Valid">
+								}
 							}
 							</td>
 						</tr>
-					}			
+					}	
+					@for(pronostiqueTemp <- pronostiques) {
+						<tr>
+							<td colspan="3">
+							@pronostiqueTemp.getMatch().getEquipe1().getNom(): @pronostiqueTemp.getPronoEquipe1() @pronostiqueTemp.getMatch().getEquipe2().getNom(): @pronostiqueTemp.getPronoEquipe2()
+							</td>
+						</tr>
+					}		
 				</tbody>
 			</table>
 		</div>
