@@ -20,12 +20,11 @@ create table match (
 ;
 
 create table utilisateur (
-  id                        bigint not null,
-  nom                       varchar(255),
+  nom                       varchar(255) not null,
   prenom                    varchar(255),
   points                    integer,
   password                  varchar(255),
-  constraint pk_utilisateur primary key (id))
+  constraint pk_utilisateur primary key (nom))
 ;
 
 create sequence equipe_seq;

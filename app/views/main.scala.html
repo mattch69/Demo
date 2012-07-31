@@ -1,4 +1,4 @@
-@(content: Html)
+@(user: Utilisateur)(content: Html)
 
 <!DOCTYPE html>
 
@@ -22,11 +22,15 @@
 			<div class="navbar-inner">
 				<div class="container">
 					<ul class="nav">
-					<a class="brand" href="@routes.Application.index()">Project name</a>
+					<a class="brand" href="@routes.Application.index()">Prono 3000</a>
 						<li class="active">
-							<a href="#index.scala.html">Home</a>
+							<a href="@routes.Application.index()">Home</a>
 						</li>
-						<li><a href="@routes.Application.pronostics()">Pronostic</a></li>
+						<li><a href="@routes.Pronostiques.pronostics()">Pronostic</a></li>
+						@if(user != null) {
+                            <li><a>@user.nom</a></li>
+                            <li><a href="@routes.Authentification.logout()">Logout</a></li>
+                    	}
 					</ul>
 				</div>
 			</div>

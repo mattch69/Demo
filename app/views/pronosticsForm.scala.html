@@ -1,7 +1,7 @@
-@(test: List[Match])
+@(test: List[Match],pronostique: List[Pronostique], pronostiqueForm: Form[Pronostique],user: Utilisateur)
+@import helper.twitterBootstrap._
 
-
-@main {	
+@main(user) {	
 	<h1>Liste des matches</h1>
 	<div class="row">
 		<div class="span3 offset4">
@@ -21,7 +21,15 @@
 							<td style="text-align:right;">@matchTemp.equipe2.getNom()</td>
 						</tr>
 						<tr id="Pronostics_@matchTemp.id" style="display:none;">
-							<td colspan="3" style="text-align: center;">test</td>
+							<td colspan="3" style="text-align: center;">
+							@helper.form(routes.Pronostiques.add) {
+							
+							
+								@helper.inputText(pronostiqueForm("pronoEquipe1"))
+								@helper.inputText(pronostiqueForm("pronoEquipe2"))
+								<input type="submit" value="Valid">
+							}
+							</td>
 						</tr>
 					}			
 				</tbody>

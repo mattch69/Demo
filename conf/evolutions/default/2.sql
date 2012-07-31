@@ -34,7 +34,7 @@ insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) value
 insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) values (9,19,20,null,null,null);
 insert into Match (id,equipe1,equipe2,scoreEquipe1,scoreEquipe2,vainqueur) values (10,14,9,null,null,null);
 
-insert into Utilisateur (id,nom,prenom,points,password) values (1,'Molle','Alexis',0,'alex');
+insert into Utilisateur (nom,prenom,points,password) values ('toto','toto',0,'toto');
 
 # --- !Downs
 

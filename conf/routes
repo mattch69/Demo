@@ -1,12 +1,17 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
-
 # Home page
 GET     /                           controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
+# Authentication
+GET     /login                              controllers.Authentification.login()
+POST    /login                              controllers.Authentification.authenticate()
+GET     /logout                             controllers.Authentification.logout()
+
 # Pronostics page
-GET     /pronostics                           controllers.Application.pronostics()
+GET     /pronostics                         controllers.Pronostiques.pronostics()
+POST    /pronostics          				controllers.Pronostiques.add()
