@@ -4,6 +4,7 @@ import models.Utilisateur;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security.Authenticated;
 import views.html.login;
 
 public class Authentification extends Controller {
@@ -13,10 +14,26 @@ public class Authentification extends Controller {
         public String nom;
         public String password;
 
-        public String validate() {
+        public String getNom() {
+			return nom;
+		}
+
+		public void setNom(String nom) {
+			this.nom = nom;
+		}
+
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
+		public String validate() {
             if(Utilisateur.authenticate(nom, password) == null) {
             	
-                return "Informations incorrecte"+nom+" "+password;
+                return "Informations incorrecte " + nom + " " + password;
             }
             return null;
         }

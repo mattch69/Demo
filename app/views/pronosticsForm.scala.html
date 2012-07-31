@@ -27,7 +27,10 @@
 									@matchTemp.equipe1.getNom(): @pronostiques.filter(_.getMatch().id.equals(matchTemp.id)).head.getPronoEquipe1()
 									@matchTemp.equipe2.getNom(): @pronostiques.filter(_.getMatch().id.equals(matchTemp.id)).head.getPronoEquipe2()
 								}else{
-															
+									
+									@helper.inputText(pronostiqueForm("id"))
+									@helper.inputText(pronostiqueForm("match"))
+									@helper.inputText(pronostiqueForm("utilisateur"))					
 									@helper.inputText(pronostiqueForm("pronoEquipe1"))
 									@helper.inputText(pronostiqueForm("pronoEquipe2"))
 									<input type="submit" value="Valid">
